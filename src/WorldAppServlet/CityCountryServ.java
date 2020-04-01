@@ -26,9 +26,12 @@ public class CityCountryServ extends HttpServlet {
 		  response.setContentType("text/html");
 		  PrintWriter out = response.getWriter();
 		  out.println("<html>");
-		  out.println("<head><title>City/Country QueryServlet</title></head>");
+		  out.println("<head>");
+		  out.println("<title>City/Country QueryServlet</title>");
+		  out.println("<style> h1 {color: blue; text-decoration-line: underline;} </style>");
+		  out.println("</head>");
 		  out.println("<body>");
-		  out.println("<h1>The Country and City With the ID of 3 are:</h1>");
+		  out.println("<h1>The Country and City That Match City_ID = 3 are:</h1>");
 		  out.println("</body></html>");
 		  
 		  Connection con = null;
@@ -39,24 +42,19 @@ public class CityCountryServ extends HttpServlet {
 		  {
 			  Class.forName("com.mysql.jdbc.Driver");
 			  con =DriverManager.getConnection("jdbc:mysql://database-7.ctiembqzvsd8.us-east-1.rds.amazonaws.com:3306/WorldApp?serverTimezone=EST5EDT","admin","admin123");
-			  
-			  
+			  			  
 			  stmt = con.createStatement();
 			  rs = stmt.executeQuery("SELECT City.city_id, City.city_name, Country.country_id, Country.country_name, Country.population FROM City LEFT JOIN Country USING (city_id) WHERE city_id = 3");
 			  
-			  out.println("The City with the ID of 3 is:");
-			  out.print("<br>");
-			  
-			  // 	displaying records
 			  while(rs.next())
 			  {
-				  out.println("<h1>City</h1>");
+				  out.println("<h1><em>City</em></h1>");
 				  out.println("<em>ID:</em> " + rs.getInt("city_id"));
 				  out.print("<br>");
 				  out.println("<em>City Name:</em> " + rs.getString("city_name"));
 				  out.print("<br>");
 				  out.print("<br>");
-				  out.println("<h1>Country</h1>");
+				  out.println("<h1><em>Country</em></h1>");
 				  out.println("<em>ID:</em> " + rs.getInt("country_id"));
 				  out.print("<br>");
 				  out.println("<em>Country Name:</em> " + rs.getString("country_name"));
