@@ -12,12 +12,11 @@
 <h1>Your Calculation Result:</h1>
 
 <%
-	double num1, num2, result;
-	String Operation;
+	double result;
 	
-	num1 = Double.parseDouble(request.getParameter("number1"));
-	num2 = Double.parseDouble(request.getParameter("number2"));
-	Operation = request.getParameter("Operation");
+	double num1 = Double.parseDouble(request.getParameter("number1"));
+	double num2 = Double.parseDouble(request.getParameter("number2"));
+	String Operation = request.getParameter("Operation");
 		
 	switch (Operation)
 	{
