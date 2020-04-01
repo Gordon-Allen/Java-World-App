@@ -53,7 +53,6 @@ public class CityCountryServ extends HttpServlet {
 				  out.print("<br>");
 				  out.println("<em>City Name:</em> " + rs.getString("city_name"));
 				  out.print("<br>");
-				  out.print("<br>");
 				  out.println("<h1><em>Country</em></h1>");
 				  out.println("<em>ID:</em> " + rs.getInt("country_id"));
 				  out.print("<br>");
